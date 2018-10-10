@@ -11,4 +11,9 @@ export class HomePage {
 
   }
 
+  mostrarNombre():void{
+    console.log("Fredy Talero");
+  }
+
+
 }
