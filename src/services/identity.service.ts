@@ -1,11 +1,23 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of"
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class IdentityService{
+
+    private api: string = "http://localhost:3000/api/v1";
+    private get getUsers():string{
+        return this.api + "getUsuarios"
+    }
+
+    constructor(
+        private http: HttpClient
+    ){}
+
     getUsuarios():Observable<UserModel[]>{
-        return of(USERS_DATA);
+        return this.http.get(this.getUsers);
+        //return of(USERS_DATA);
     }
 } 
 
