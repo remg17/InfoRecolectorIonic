@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { IdentityService, UserModel } from '../../services/identity.service';
 
 @Component({
   selector: 'page-home',
@@ -7,12 +8,23 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  usuarios: UserModel[];
+
+  constructor(
+    public navCtrl: NavController,
+    private identityService: IdentityService
+    ) {
 
   }
 
   mostrarNombre():void{
     console.log("Fredy Talero");
+
+    this.identityService.getUsuarios().subscribe(ans  => this.cargarUsuarios(ans));
+  }
+
+  cargarUsuarios(u:UserModel[]){
+    this.usuarios = [...u];
   }
 
 

@@ -8,29 +8,31 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LogoPreviewComponent } from '../components/logo-preview/logo-preview.components';
+import { ComponentsModule } from '../components/components.module';
+import { IdentityService } from '../services/identity.service';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    LogoPreviewComponent
+    ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    LogoPreviewComponent
+    ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    IdentityService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
