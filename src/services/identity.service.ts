@@ -16,8 +16,8 @@ export class IdentityService{
     ){}
 
     getUsuarios():Observable<UserModel[]>{
-        return this.http.get(this.getUsers);
-        //return of(USERS_DATA);
+        //return this.http.get(this.getUsers);
+        return of(USERS_DATA);
     }
 } 
 
