@@ -25,6 +25,7 @@ export class HomePage {
 
   cargarUsuarios(u:UserModel[]){
     this.usuarios = [...u];
+    console.log(this.usuarios);
   }
 
 

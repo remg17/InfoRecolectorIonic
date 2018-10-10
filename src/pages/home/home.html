@@ -16,13 +16,15 @@
 
   <button ion-button (click)="mostrarNombre()">Botón</button>
 
-  <ng-container *ngIf="usuarios;else noUser">
-    <div *ngFor="lef u of usuarios">
-      Id: {{u.Id}} - Nombre: {{u.name}} - Email: {{u.email}}
-    </div>
+  <ng-container *ngIf="usuarios;else noUsers">
+    <ng-container *ngFor="let u of usuarios">
+      <div>
+        Id: {{u.Id}} - Nombre: {{u.name}} - Email: {{u.email}}
+      </div>
+    </ng-container>
   </ng-container>
 
-  <ng-template #noUser>
+  <ng-template #noUsers>
     <h1>No hay usuarios</h1>
   </ng-template>
 
