@@ -31,4 +31,4 @@ export class HomePage {
 
 }
 
-// REMG Pruba de ingreso por GamepadHapticActuator, estación trabajo
+// REMG Prueba de ingreso por Git Hub, estación trabajo
