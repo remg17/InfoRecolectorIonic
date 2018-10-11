@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { IdentityService } from '../../services/identity.service';
-import { ListPage } from '../list/list';
 import { AccountPage } from '../account/account';
 
 

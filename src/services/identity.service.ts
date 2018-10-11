@@ -2,11 +2,14 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of"
 import { HttpClient } from "@angular/common/http";
+import { Storage } from "@ionic/storage";
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class IdentityService{
 
     private api: string = "http://localhost:3000/api/v1";
+
     private get getUsers():string{
         return this.api + "getUsuarios"
     }
@@ -14,17 +17,27 @@ export class IdentityService{
     currentUsr: UserModel;
 
     constructor(
-        private http: HttpClient
-    ){}
+        private http: HttpClient,
+        private storage: Storage
+    ){
+        this.storage.get('usr').then(ans => {
+            if(ans){
+                this.currentUsr = {...ans};
+            }
+        })
+    }
 
     getUsuarios():Observable<UserModel[]>{
-        //return this.http.get(this.getUsers);
-        return of(USERS_DATA);
+        return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
+        //return of(USERS_DATA);
     }
 
     isValidData(email: string, password: string) : Observable<boolean>{
+        this.storage.set('Test', '');
         const usr = USERS_DATA.find(u => u.email == email && u.password == password);
         if(usr){
+            this.currentUsr = {...usr};
+            this.storage.set('usr', this.currentUsr);
             return of(true);
         }
         return of(false);

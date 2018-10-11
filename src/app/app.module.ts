@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginPage } from '../pages/login/login';
 import { AccountPage } from '../pages/account/account';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { AccountPage } from '../pages/account/account';
     ComponentsModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,6 +47,7 @@ import { AccountPage } from '../pages/account/account';
     StatusBar,
     SplashScreen,
     IdentityService,
+    Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
