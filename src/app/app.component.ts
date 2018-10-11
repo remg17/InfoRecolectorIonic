@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { AccountPage } from '../pages/account/account';
+import { IdentityService } from '../services/identity.service';
 
 
 @Component({
@@ -15,15 +18,18 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, authLevel: number}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+    private identityService: IdentityService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: HomePage, authLevel: 0},
+      { title: 'List', component: ListPage, authLevel: 0},
+      { title: 'Login', component: LoginPage, authLevel: 1},
+      { title: 'Account', component: AccountPage, authLevel: 2}
     ];
 
   }
@@ -41,5 +47,21 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  isVisible(authLevel: number):boolean{
+    let ans: boolean;
+
+    switch(authLevel){
+      case 0: ans = true;
+      break;
+      case 1: ans = !this.identityService.isAuthenticated();
+      break;
+      case 2: ans = this.identityService.isAuthenticated();
+      break;
+      default: ans = true;
+
+    }
+    return ans;
   }
 }

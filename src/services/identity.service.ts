@@ -11,6 +11,8 @@ export class IdentityService{
         return this.api + "getUsuarios"
     }
 
+    currentUsr: UserModel;
+
     constructor(
         private http: HttpClient
     ){}
@@ -19,23 +21,38 @@ export class IdentityService{
         //return this.http.get(this.getUsers);
         return of(USERS_DATA);
     }
+
+    isValidData(email: string, password: string) : Observable<boolean>{
+        const usr = USERS_DATA.find(u => u.email == email && u.password == password);
+        if(usr){
+            return of(true);
+        }
+        return of(false);
+    }
+
+    isAuthenticated():boolean{
+        return this.currentUsr ? true : false;
+    }
 } 
 
 const USERS_DATA : UserModel[] = [
     {
         email: "ftalero@123.com",
         id: 4,
-        name: "JFTO"
+        name: "JFTO",
+        password: "123456789"
     },
     {
         email: "imartine@123.com",
         id: 3,
-        name: "IDMG"
+        name: "IDMG",
+        password: "987654321"
     }
 ];
 
 export interface UserModel{
     name: string,
     id: number,
-    email: string
+    email: string,
+    password: string
 }
