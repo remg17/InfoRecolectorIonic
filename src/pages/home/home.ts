@@ -30,3 +30,5 @@ export class HomePage {
 
 
 }
+
+// REMG Pruba de ingreso por GamepadHapticActuator, estación trabajo
