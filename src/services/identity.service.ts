@@ -26,7 +26,7 @@ export class IdentityService{
         this.storage.get('usr').then(ans => {
             if(ans){
                 this.currentUsr = {...ans};
-                this.userChange.emit(this.curr);
+                this.userChange.emit(this.currentUsr);
             }
         })
     }
