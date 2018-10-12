@@ -14,7 +14,7 @@
     <ion-input type="text" [(ngModel)]="email"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating>Password</ion-label>
+    <ion-label floating color="{{isValidated ? 'danger' : 'success' }}">Password</ion-label>
     <ion-input type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
   <button ion-button large (click)="validateData()" >Login</button>

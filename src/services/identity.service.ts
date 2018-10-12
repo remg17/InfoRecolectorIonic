@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of"
 import { HttpClient } from "@angular/common/http";
@@ -14,7 +14,10 @@ export class IdentityService{
         return this.api + "getUsuarios"
     }
 
+    //Auth
     currentUsr: UserModel;
+
+    userChange: EventEmitter<UserModel> = new EventEmitter<UserModel>();
 
     constructor(
         private http: HttpClient,
@@ -23,13 +26,14 @@ export class IdentityService{
         this.storage.get('usr').then(ans => {
             if(ans){
                 this.currentUsr = {...ans};
+                this.userChange.emit(this.curr);
             }
         })
     }
 
     getUsuarios():Observable<UserModel[]>{
-        return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
-        //return of(USERS_DATA);
+        //return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
+        return of(USERS_DATA);
     }
 
     isValidData(email: string, password: string) : Observable<boolean>{
