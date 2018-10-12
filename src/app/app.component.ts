@@ -64,4 +64,8 @@ export class MyApp {
     }
     return ans;
   }
+
+  logOut():void{
+    this.identityService.logOut();
+  }
 }

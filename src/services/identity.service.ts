@@ -47,8 +47,18 @@ export class IdentityService{
         return of(false);
     }
 
+    x: number = 0;
+
     isAuthenticated():boolean{
+        this.x++;
+        console.log('isAuthenticated',this.x);
         return this.currentUsr ? true : false;
+    }
+
+    logOut():void{
+        this.storage.clear();
+        this.currentUsr = null;
+        this.userChange.emit(this.currentUsr);
     }
 } 
 

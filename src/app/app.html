@@ -14,7 +14,9 @@
             </button>
         </ng-container>
       </ng-container>
-      
+      <ng-container *ngIf="isVisible(2)">
+        <button menuClose ion-item  (click)="logOut()">LogOut</button>
+      </ng-container>
     </ion-list>
   </ion-content>
 
