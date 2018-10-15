@@ -8,10 +8,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class IdentityService{
 
-    private api: string = "http://localhost:3000/api/v1";
+    private api: string = "https://info-recolector-rails.herokuapp.com/api/v1/";
+    private usuarios: UserModel[];
 
     private get getUsers():string{
-        return this.api + "getUsuarios"
+        return this.api + "users"
     }
 
     //Auth
@@ -32,19 +33,42 @@ export class IdentityService{
     }
 
     getUsuarios():Observable<UserModel[]>{
-        //return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
-        return of(USERS_DATA);
+        return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
+        //return of(USERS_DATA);
     }
 
+    cargarUsuarios(u:UserModel[]){
+        this.usuarios = [...u];
+      }
+
+    // isValidData(email: string, password: string) : Observable<boolean>{
+    //     this.storage.set('Test', '');
+    //     const usr = USERS_DATA.find(u => u.email == email && u.password == password);
+    //     if(usr){
+    //         this.currentUsr = {...usr};
+    //         this.storage.set('usr', this.currentUsr);
+    //         return of(true);
+    //     }
+    //     return of(false);
+    // }
+
     isValidData(email: string, password: string) : Observable<boolean>{
+        var usr: UserModel
         this.storage.set('Test', '');
-        const usr = USERS_DATA.find(u => u.email == email && u.password == password);
-        if(usr){
-            this.currentUsr = {...usr};
-            this.storage.set('usr', this.currentUsr);
+        this.getUsuarios().subscribe(ans  => {
+            this.cargarUsuarios(ans);
+            usr = this.usuarios.find(u => u.email == email && u.password == password);
+            console.log(usr);
+            if(usr){
+                this.currentUsr = {...usr};
+                this.storage.set('usr', this.currentUsr);
+                return of(true);
+            }
+             return of(false);
+        });
+        if (usr != undefined){
             return of(true);
         }
-        return of(false);
     }
 
     x: number = 0;
