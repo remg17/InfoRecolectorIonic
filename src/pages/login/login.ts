@@ -28,6 +28,7 @@ export class LoginPage {
     private identityService: IdentityService,
     private alertControl: AlertController) {
       this.isValidated = false;
+      this.identityService.getUsuarios().subscribe(ans => identityService.cargarUsuarios(ans));
   }
 
   ionViewDidLoad() {

@@ -10,16 +10,14 @@ export class IdentityService{
 
     private api: string = "https://info-recolector-rails.herokuapp.com/api/v1/";
     private usuarios: UserModel[];
+    //Auth
+    currentUsr: UserModel;
+    userChange: EventEmitter<UserModel> = new EventEmitter<UserModel>();
 
     private get getUsers():string{
         return this.api + "users"
     }
-
-    //Auth
-    currentUsr: UserModel;
-
-    userChange: EventEmitter<UserModel> = new EventEmitter<UserModel>();
-
+    
     constructor(
         private http: HttpClient,
         private storage: Storage
@@ -39,45 +37,27 @@ export class IdentityService{
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
-      }
-
-    // isValidData(email: string, password: string) : Observable<boolean>{
-    //     this.storage.set('Test', '');
-    //     const usr = USERS_DATA.find(u => u.email == email && u.password == password);
-    //     if(usr){
-    //         this.currentUsr = {...usr};
-    //         this.storage.set('usr', this.currentUsr);
-    //         return of(true);
-    //     }
-    //     return of(false);
-    // }
+    }
 
     isValidData(email: string, password: string) : Observable<boolean>{
-        var usr: UserModel
         this.storage.set('Test', '');
-        this.getUsuarios().subscribe(ans  => {
-            this.cargarUsuarios(ans);
-            usr = this.usuarios.find(u => u.email == email && u.password == password);
-            console.log(usr);
-            if(usr){
-                this.currentUsr = {...usr};
-                this.storage.set('usr', this.currentUsr);
-                return of(true);
-            }
-             return of(false);
-        });
-        if (usr != undefined){
+        const usr = this.usuarios.find(u => u.email == email && u.password == password);
+        if(usr){
+            this.currentUsr = {...usr};
+            this.storage.set('usr', this.currentUsr);
             return of(true);
         }
+        return of(false);
     }
 
-    x: number = 0;
+    // Comprobar los eventos que se ejecutan
+    // x: number = 0;
 
-    isAuthenticated():boolean{
-        this.x++;
-        console.log('isAuthenticated',this.x);
-        return this.currentUsr ? true : false;
-    }
+    // isAuthenticated():boolean{
+    //     this.x++;
+    //     console.log('isAuthenticated',this.x);
+    //     return this.currentUsr ? true : false;
+    // }
 
     logOut():void{
         this.storage.clear();

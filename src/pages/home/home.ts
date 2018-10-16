@@ -32,17 +32,14 @@ export class HomePage {
   }
 
   mostrarNombre():void{
-    console.log("Fredy Talero");
-
-    this.identityService.getUsuarios().subscribe(ans  => this.cargarUsuarios(ans));
+    this.identityService.getUsuarios().subscribe(ans  => this.identityService.cargarUsuarios(ans));
   }
 
-  cargarUsuarios(u:UserModel[]){
-    this.usuarios = [...u];
-    console.log(this.usuarios);
-  }
+  // Listar los usuarios con el botón
+  // cargarUsuarios(u:UserModel[]){
+  //   this.usuarios = [...u];
+  //   console.log(this.usuarios);
+  // }
 
 
 }
-
-// REMG Prueba de ingreso por Git Hub, estación trabajo
