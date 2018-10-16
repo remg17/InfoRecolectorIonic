@@ -53,11 +53,11 @@ export class IdentityService{
     // Comprobar los eventos que se ejecutan
     // x: number = 0;
 
-    // isAuthenticated():boolean{
-    //     this.x++;
-    //     console.log('isAuthenticated',this.x);
-    //     return this.currentUsr ? true : false;
-    // }
+    isAuthenticated():boolean{
+        //this.x++;
+        //console.log('isAuthenticated',this.x);
+        return this.currentUsr ? true : false;
+    }
 
     logOut():void{
         this.storage.clear();
