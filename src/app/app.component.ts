@@ -67,5 +67,6 @@ export class MyApp {
 
   logOut():void{
     this.identityService.logOut();
+    this.nav.setRoot(HomePage);
   }
 }

@@ -37,6 +37,7 @@ export class IdentityService{
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
+        console.log(this.usuarios);
     }
 
     isValidData(email: string, password: string) : Observable<boolean>{
@@ -63,6 +64,7 @@ export class IdentityService{
         this.storage.clear();
         this.currentUsr = null;
         this.userChange.emit(this.currentUsr);
+        // this.navCtrl.setRoot(HomePage);
     }
 } 
 

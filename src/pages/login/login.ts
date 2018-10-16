@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { IdentityService } from '../../services/identity.service';
 import { AccountPage } from '../account/account';
+import { HomePage } from '../home/home';
 
 
 /**
@@ -39,7 +40,7 @@ export class LoginPage {
     this.identityService.isValidData(this.email, this.password).subscribe(ans => {
       if(ans){
         console.log("Listo Mijo!!!");
-        this.navCtrl.push(AccountPage);
+        this.navCtrl.setRoot(HomePage);
         return;
       }
       this.isValidated = true;
