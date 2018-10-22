@@ -26,9 +26,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, authLevel: 0},
+      { title: 'Inicio', component: HomePage, authLevel: 0},
       { title: 'List', component: ListPage, authLevel: 0},
-      { title: 'Login', component: LoginPage, authLevel: 1},
+      { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
       { title: 'Account', component: AccountPage, authLevel: 2}
     ];
 

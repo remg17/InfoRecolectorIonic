@@ -1,21 +1,21 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color='navbarColor'>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login</ion-title>
+    <ion-title>Iniciar Sesión</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
   <ion-item>
-    <ion-label floating color="{{isValidated ? 'danger' : 'success' }}">Email</ion-label>
+    <ion-label floating color="{{isValidated ? 'danger' : 'success' }}">Correo Electronico</ion-label>
     <ion-input type="text" [(ngModel)]="email"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating color="{{isValidated ? 'danger' : 'success' }}">Password</ion-label>
+    <ion-label floating color="{{isValidated ? 'danger' : 'success' }}">Contraseña</ion-label>
     <ion-input type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
-  <button ion-button large (click)="validateData()" >Login</button>
+  <button ion-button large (click)="validateData()" >Iniciar</button>
 </ion-content>
