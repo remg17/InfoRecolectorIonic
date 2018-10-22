@@ -16,12 +16,32 @@
 // automatically applied to the <body> element in the app.
 
 ion-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 90px 1px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: #000000 !important;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #000000 !important;
+}
+
+.sidemenu {
+  background: #fdca2e;
+}
+
+.listmenu{
+  border-bottom: none !important;
+}
+
+.listmenu .item-inner{
+  border-bottom: 0.55px solid #000000 !important;
+}
+
+// .listmenu{
+//   border-bottom: 0.55px solid #000000 !important;
+// }
+
+// .listmenu .item-inner{
+//   border-bottom: none !important;
+// }

@@ -1,15 +1,15 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
+    <ion-toolbar color='navbarColor'>
+      <ion-title color='black'>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="sidemenu">
     <ion-list>
       <ng-container *ngFor="let p of pages">
         <ng-container *ngIf="isVisible(p.authLevel)">
-            <button menuClose ion-item  (click)="openPage(p)">
+            <button class="listmenu" color='navbarColor' menuClose ion-item  (click)="openPage(p)">
                 {{p.title}}
             </button>
         </ng-container>
