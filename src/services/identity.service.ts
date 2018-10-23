@@ -5,13 +5,13 @@ import { HttpClient } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
 import 'rxjs/add/operator/map';
 import { Type } from "@angular/compiler/src/output/output_ast";
+import { map } from "rxjs/operator/map";
 
 @Injectable()
 export class IdentityService{
 
     private api: string = "https://info-recolector-rails.herokuapp.com/api/v1/";
     private usuarios: UserModel[];
-    private camiones: TruckModel[];
 
     //Auth
     currentUsr: UserModel;
@@ -23,6 +23,10 @@ export class IdentityService{
 
     private get getTrucks():string{
         return this.api + "trucks"
+    }
+
+    private get getRecyclingPoints():string{
+        return this.api + "recycling_points"
     }
 
     constructor(
@@ -44,6 +48,10 @@ export class IdentityService{
 
     getCamiones():Observable<TruckModel[]>{
         return this.http.get(this.getTrucks).map(obj => <TruckModel[]>obj);
+    }
+
+    getPuntosReciclaje():Observable<RecyclingPointModel[]>{
+        return this.http.get(this.getRecyclingPoints).map(obj => <RecyclingPointModel[]>obj);
     }
 
     cargarUsuarios(u:UserModel[]){
@@ -105,6 +113,13 @@ export interface TruckModel{
     id: number,
     name: string,
     licensePlate: string,
-    type_truck: Object,
+    type_truck: Object
+}
 
+export interface RecyclingPointModel{
+    id: number,
+    name: string,
+    location: string,
+    latitude: string,
+    longitude: string
 }
