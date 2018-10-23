@@ -1,18 +1,18 @@
-<!--
-  Generated template for the TrucksPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Trucks</ion-title>
+  <ion-navbar color='navbarColor'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Camiones</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list >
+    <ion-item *ngFor="let truck of camiones">
+      <h2>{{truck.name}}</h2>
+      <p> {{truck.type_truck.name}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -4,12 +4,15 @@ import { of } from "rxjs/observable/of"
 import { HttpClient } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
 import 'rxjs/add/operator/map';
+import { Type } from "@angular/compiler/src/output/output_ast";
 
 @Injectable()
 export class IdentityService{
 
     private api: string = "https://info-recolector-rails.herokuapp.com/api/v1/";
     private usuarios: UserModel[];
+    private camiones: TruckModel[];
+
     //Auth
     currentUsr: UserModel;
     userChange: EventEmitter<UserModel> = new EventEmitter<UserModel>();
@@ -17,7 +20,11 @@ export class IdentityService{
     private get getUsers():string{
         return this.api + "users"
     }
-    
+
+    private get getTrucks():string{
+        return this.api + "trucks"
+    }
+
     constructor(
         private http: HttpClient,
         private storage: Storage
@@ -33,6 +40,10 @@ export class IdentityService{
     getUsuarios():Observable<UserModel[]>{
         return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
         //return of(USERS_DATA);
+    }
+
+    getCamiones():Observable<TruckModel[]>{
+        return this.http.get(this.getTrucks).map(obj => <TruckModel[]>obj);
     }
 
     cargarUsuarios(u:UserModel[]){
@@ -88,4 +99,12 @@ export interface UserModel{
     id: number,
     email: string,
     password: string
+}
+
+export interface TruckModel{
+    id: number,
+    name: string,
+    licensePlate: string,
+    type_truck: Object,
+
 }

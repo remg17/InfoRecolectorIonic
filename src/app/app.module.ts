@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginPage } from '../pages/login/login';
 import { AccountPage } from '../pages/account/account';
 import { IonicStorageModule } from '@ionic/storage';
+import { TrucksPage } from '../pages/trucks/trucks';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     ListPage,
     LoginPage,
-    AccountPage
+    AccountPage,
+    TrucksPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     ListPage,
     LoginPage,
-    AccountPage
+    AccountPage,
+    TrucksPage
   ],
   providers: [
     StatusBar,

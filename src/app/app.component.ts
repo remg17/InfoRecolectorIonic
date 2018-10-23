@@ -6,8 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { AccountPage } from '../pages/account/account';
 import { IdentityService } from '../services/identity.service';
+import { TrucksPage } from '../pages/trucks/trucks';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class MyApp {
       { title: 'Inicio', component: HomePage, authLevel: 0},
       { title: 'List', component: ListPage, authLevel: 0},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
-      { title: 'Account', component: AccountPage, authLevel: 2}
+      { title: 'Camiones', component: TrucksPage, authLevel: 2}
     ];
 
   }
