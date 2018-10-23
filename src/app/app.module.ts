@@ -18,6 +18,7 @@ import { LoginPage } from '../pages/login/login';
 import { AccountPage } from '../pages/account/account';
 import { IonicStorageModule } from '@ionic/storage';
 import { TrucksPage } from '../pages/trucks/trucks';
+import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TrucksPage } from '../pages/trucks/trucks';
     ListPage,
     LoginPage,
     AccountPage,
-    TrucksPage
+    TrucksPage,
+    RecyclingPointsPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { TrucksPage } from '../pages/trucks/trucks';
     ListPage,
     LoginPage,
     AccountPage,
-    TrucksPage
+    TrucksPage,
+    RecyclingPointsPage
   ],
   providers: [
     StatusBar,

@@ -4,10 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { IdentityService } from '../services/identity.service';
 import { TrucksPage } from '../pages/trucks/trucks';
+import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 
 
 @Component({
@@ -27,9 +27,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Inicio', component: HomePage, authLevel: 0},
-      { title: 'List', component: ListPage, authLevel: 0},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
-      { title: 'Camiones', component: TrucksPage, authLevel: 2}
+      { title: 'Camiones', component: TrucksPage, authLevel: 2},
+      { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 0}
     ];
 
   }
