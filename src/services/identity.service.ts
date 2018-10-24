@@ -31,7 +31,11 @@ export class IdentityService{
 
     private get getStops():string{
         return this.api + "stops"
-    }    
+    }
+
+    private get getRoutes():string{
+        return this.api + "routes"
+    }       
 
     constructor(
         private http: HttpClient,
@@ -60,7 +64,11 @@ export class IdentityService{
 
     getParadas():Observable<StopModel[]>{
         return this.http.get(this.getStops).map(obj => <StopModel[]>obj);
-    }    
+    }
+
+    getRutas():Observable<RouteModel[]>{
+        return this.http.get(this.getRoutes).map(obj => <RouteModel[]>obj);
+    }       
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
@@ -137,4 +145,9 @@ export interface StopModel{
     address: string,
     latitude: string,
     longitude: string
+}
+
+export interface RouteModel{
+    id: number,    
+    name: string
 }
