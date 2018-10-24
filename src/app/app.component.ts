@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { IdentityService } from '../services/identity.service';
 import { TrucksPage } from '../pages/trucks/trucks';
 import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
+import { StopsPage } from '../pages/stops/stops';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class MyApp {
       { title: 'Inicio', component: HomePage, authLevel: 0},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
       { title: 'Camiones', component: TrucksPage, authLevel: 2},
-      { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 0}
+      { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 0},
+      { title: 'Paradas', component: StopsPage, authLevel: 0}      
     ];
 
   }

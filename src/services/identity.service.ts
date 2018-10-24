@@ -29,6 +29,10 @@ export class IdentityService{
         return this.api + "recycling_points"
     }
 
+    private get getStops():string{
+        return this.api + "stops"
+    }    
+
     constructor(
         private http: HttpClient,
         private storage: Storage
@@ -53,6 +57,10 @@ export class IdentityService{
     getPuntosReciclaje():Observable<RecyclingPointModel[]>{
         return this.http.get(this.getRecyclingPoints).map(obj => <RecyclingPointModel[]>obj);
     }
+
+    getParadas():Observable<StopModel[]>{
+        return this.http.get(this.getStops).map(obj => <StopModel[]>obj);
+    }    
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
@@ -120,6 +128,13 @@ export interface RecyclingPointModel{
     id: number,
     name: string,
     location: string,
+    latitude: string,
+    longitude: string
+}
+
+export interface StopModel{
+    id: number,    
+    address: string,
     latitude: string,
     longitude: string
 }
