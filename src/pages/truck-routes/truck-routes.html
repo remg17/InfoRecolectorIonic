@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color='navbarColor'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rutas / Camiones</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list >
+    <ion-item *ngFor="let ruta of rutasCamiones">
+      <h2>{{ruta.route.name}}</h2>
+      <p> {{ruta.truck.name}}</p>
+      <p> {{ruta.truck.licensePlate}}</p>      
+    </ion-item>
+  </ion-list>
+</ion-content>

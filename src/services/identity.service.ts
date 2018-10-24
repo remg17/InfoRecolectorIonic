@@ -35,7 +35,11 @@ export class IdentityService{
 
     private get getRoutes():string{
         return this.api + "routes"
-    }       
+    }
+
+    private get getTruckRoutes():string{
+        return this.api + "truck_routes"
+    }      
 
     constructor(
         private http: HttpClient,
@@ -68,7 +72,11 @@ export class IdentityService{
 
     getRutas():Observable<RouteModel[]>{
         return this.http.get(this.getRoutes).map(obj => <RouteModel[]>obj);
-    }       
+    }
+    
+    getRutasCamiones():Observable<TruckRouteModel[]>{
+        return this.http.get(this.getTruckRoutes).map(obj => <TruckRouteModel[]>obj);
+    }    
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
@@ -150,4 +158,9 @@ export interface StopModel{
 export interface RouteModel{
     id: number,    
     name: string
+}
+
+export interface TruckRouteModel{
+    truck: Object,
+    route: Object    
 }

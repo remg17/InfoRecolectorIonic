@@ -21,6 +21,7 @@ import { TrucksPage } from '../pages/trucks/trucks';
 import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 import { StopsPage } from '../pages/stops/stops';
 import { RoutesPage } from '../pages/routes/routes';
+import { TruckRoutesPage } from '../pages/truck-routes/truck-routes';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { RoutesPage } from '../pages/routes/routes';
     TrucksPage,
     RecyclingPointsPage,
     StopsPage,
-    RoutesPage
+    RoutesPage,
+    TruckRoutesPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { RoutesPage } from '../pages/routes/routes';
     TrucksPage,
     RecyclingPointsPage,
     StopsPage,
-    RoutesPage
+    RoutesPage,
+    TruckRoutesPage
   ],
   providers: [
     StatusBar,

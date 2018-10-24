@@ -10,6 +10,7 @@ import { TrucksPage } from '../pages/trucks/trucks';
 import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 import { StopsPage } from '../pages/stops/stops';
 import { RoutesPage } from '../pages/routes/routes';
+import { TruckRoutesPage } from '../pages/truck-routes/truck-routes';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class MyApp {
       { title: 'Inicio', component: HomePage, authLevel: 0},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
       { title: 'Camiones', component: TrucksPage, authLevel: 2},
+      { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},      
       { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 0},
       { title: 'Paradas', component: StopsPage, authLevel: 0},
       { title: 'Rutas', component: RoutesPage, authLevel: 0}      
