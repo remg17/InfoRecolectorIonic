@@ -23,6 +23,7 @@ import { StopsPage } from '../pages/stops/stops';
 import { RoutesPage } from '../pages/routes/routes';
 import { TruckRoutesPage } from '../pages/truck-routes/truck-routes';
 import { RouteStopsPage } from '../pages/route-stops/route-stops';
+import { RouteSchedulesPage } from '../pages/route-schedules/route-schedules';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { RouteStopsPage } from '../pages/route-stops/route-stops';
     StopsPage,
     RoutesPage,
     TruckRoutesPage,
-    RouteStopsPage
+    RouteStopsPage,
+    RouteSchedulesPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { RouteStopsPage } from '../pages/route-stops/route-stops';
     StopsPage,
     RoutesPage,
     TruckRoutesPage,
-    RouteStopsPage
+    RouteStopsPage,
+    RouteSchedulesPage
   ],
   providers: [
     StatusBar,
