@@ -20,6 +20,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { TrucksPage } from '../pages/trucks/trucks';
 import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 import { StopsPage } from '../pages/stops/stops';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { StopsPage } from '../pages/stops/stops';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ComponentsModule,
+    HttpModule,
     HttpClientModule,
     CommonModule,
     FormsModule,

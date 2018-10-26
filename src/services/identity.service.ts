@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of"
 import { HttpClient } from "@angular/common/http";
+import { Http } from "@angular/http";
 import { Storage } from "@ionic/storage";
 import 'rxjs/add/operator/map';
 import { Type } from "@angular/compiler/src/output/output_ast";
@@ -34,7 +35,8 @@ export class IdentityService{
     }    
 
     constructor(
-        private http: HttpClient,
+        private http: Http,
+        private httpClient: HttpClient,
         private storage: Storage
     ){
         this.storage.get('usr').then(ans => {
@@ -46,20 +48,24 @@ export class IdentityService{
     }
 
     getUsuarios():Observable<UserModel[]>{
-        return this.http.get(this.getUsers).map(obj => <UserModel[]>obj);
+        return this.httpClient.get(this.getUsers).map(obj => <UserModel[]>obj);
         //return of(USERS_DATA);
     }
 
-    getCamiones():Observable<TruckModel[]>{
-        return this.http.get(this.getTrucks).map(obj => <TruckModel[]>obj);
+    // getCamiones():Observable<TruckModel[]>{
+    //     return this.http.get(this.getTrucks).map(obj => <TruckModel[]>obj);
+    // }
+
+    getCamiones():Observable<any[]>{
+        return this.http.get(this.getTrucks).map(obj => obj.json());
     }
 
     getPuntosReciclaje():Observable<RecyclingPointModel[]>{
-        return this.http.get(this.getRecyclingPoints).map(obj => <RecyclingPointModel[]>obj);
+        return this.httpClient.get(this.getRecyclingPoints).map(obj => <RecyclingPointModel[]>obj);
     }
 
     getParadas():Observable<StopModel[]>{
-        return this.http.get(this.getStops).map(obj => <StopModel[]>obj);
+        return this.httpClient.get(this.getStops).map(obj => <StopModel[]>obj);
     }    
 
     cargarUsuarios(u:UserModel[]){

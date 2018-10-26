@@ -8,11 +8,24 @@
 </ion-header>
 
 
-<ion-content padding>
+<!-- <ion-content padding>
   <ion-list >
     <ion-item *ngFor="let truck of camiones">
       <h2>{{truck.name}}</h2>
       <p> {{truck.type_truck.name}}</p>
     </ion-item>
+  </ion-list>
+</ion-content> -->
+
+<ion-content>
+  <ion-list class="accordion-list">
+    <!--First Level-->
+    <ion-list-header *ngFor="let item of camiones; let i = index" no-lines no-padding>
+      <button ion-item (click)="toogleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
+        <ion-icon name="arrow-forward" *ngIf="!item.open"></ion-icon>
+        <ion-icon name="arrow-down" *ngIf="item.open"></ion-icon>
+        {{item.name}}
+      </button>
+    </ion-list-header>
   </ion-list>
 </ion-content>
