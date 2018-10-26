@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IdentityService, UserModel, TruckModel } from '../../services/identity.service';
+import { IdentityService, TruckModel } from '../../services/identity.service';
 
 /**
  * Generated class for the TrucksPage page.

@@ -7,6 +7,7 @@ import { Storage } from "@ionic/storage";
 import 'rxjs/add/operator/map';
 import { Type } from "@angular/compiler/src/output/output_ast";
 import { map } from "rxjs/operator/map";
+import { DateTime } from "ionic-angular";
 
 @Injectable()
 export class IdentityService{
@@ -32,6 +33,22 @@ export class IdentityService{
 
     private get getStops():string{
         return this.api + "stops"
+    }
+
+    private get getRoutes():string{
+        return this.api + "routes"
+    }
+
+    private get getTruckRoutes():string{
+        return this.api + "truck_routes"
+    }
+
+    private get getRouteStops():string{
+        return this.api + "route_stops"
+    }   
+    
+    private get getRouteSchedules():string{
+        return this.api + "route_schedules"
     }    
 
     constructor(
@@ -65,8 +82,29 @@ export class IdentityService{
     }
 
     getParadas():Observable<StopModel[]>{
+<<<<<<< HEAD
         return this.httpClient.get(this.getStops).map(obj => <StopModel[]>obj);
     }    
+=======
+        return this.http.get(this.getStops).map(obj => <StopModel[]>obj);
+    }
+
+    getRutas():Observable<RouteModel[]>{
+        return this.http.get(this.getRoutes).map(obj => <RouteModel[]>obj);
+    }
+    
+    getRutasCamiones():Observable<TruckRouteModel[]>{
+        return this.http.get(this.getTruckRoutes).map(obj => <TruckRouteModel[]>obj);
+    }
+
+    getRutasParadas():Observable<RouteStopModel[]>{
+        return this.http.get(this.getRouteStops).map(obj => <RouteStopModel[]>obj);
+    }     
+
+    getRutasHorarios():Observable<RouteScheduleModel[]>{
+        return this.http.get(this.getRouteSchedules).map(obj => <RouteScheduleModel[]>obj);
+    }       
+>>>>>>> 38ea2679807b4a11e33497f668b86d84b03fa061
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
@@ -143,4 +181,29 @@ export interface StopModel{
     address: string,
     latitude: string,
     longitude: string
+}
+
+export interface RouteModel{
+    id: number,    
+    name: string
+}
+
+export interface TruckRouteModel{
+    truck: Object,
+    route: Object    
+}
+
+export interface RouteStopModel{
+    id: number,
+    stop: Object,
+    route: Object,
+    order: number    
+}
+
+export interface RouteScheduleModel{
+    id: number,
+    week: Object,
+    route: Object,
+    timStar: DateTime,
+    timEnd: DateTime
 }
