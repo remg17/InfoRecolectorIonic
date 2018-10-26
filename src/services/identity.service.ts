@@ -82,29 +82,8 @@ export class IdentityService{
     }
 
     getParadas():Observable<StopModel[]>{
-<<<<<<< HEAD
         return this.httpClient.get(this.getStops).map(obj => <StopModel[]>obj);
     }    
-=======
-        return this.http.get(this.getStops).map(obj => <StopModel[]>obj);
-    }
-
-    getRutas():Observable<RouteModel[]>{
-        return this.http.get(this.getRoutes).map(obj => <RouteModel[]>obj);
-    }
-    
-    getRutasCamiones():Observable<TruckRouteModel[]>{
-        return this.http.get(this.getTruckRoutes).map(obj => <TruckRouteModel[]>obj);
-    }
-
-    getRutasParadas():Observable<RouteStopModel[]>{
-        return this.http.get(this.getRouteStops).map(obj => <RouteStopModel[]>obj);
-    }     
-
-    getRutasHorarios():Observable<RouteScheduleModel[]>{
-        return this.http.get(this.getRouteSchedules).map(obj => <RouteScheduleModel[]>obj);
-    }       
->>>>>>> 38ea2679807b4a11e33497f668b86d84b03fa061
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];

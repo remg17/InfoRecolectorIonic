@@ -20,14 +20,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { TrucksPage } from '../pages/trucks/trucks';
 import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 import { StopsPage } from '../pages/stops/stops';
-<<<<<<< HEAD
 import { HttpModule } from '@angular/http';
-=======
-import { RoutesPage } from '../pages/routes/routes';
-import { TruckRoutesPage } from '../pages/truck-routes/truck-routes';
-import { RouteStopsPage } from '../pages/route-stops/route-stops';
-import { RouteSchedulesPage } from '../pages/route-schedules/route-schedules';
->>>>>>> 38ea2679807b4a11e33497f668b86d84b03fa061
 
 
 @NgModule({
