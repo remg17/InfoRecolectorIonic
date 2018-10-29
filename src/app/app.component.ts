@@ -34,12 +34,12 @@ export class MyApp {
       { title: 'Inicio', component: HomePage, authLevel: 2},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
       { title: 'Camiones', component: TrucksPage, authLevel: 2},
-      // { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},
+      { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},
       { title: 'Rutas / Paradas', component: RouteStopsPage, authLevel: 2},
       { title: 'Rutas / Horarios', component: RouteSchedulesPage, authLevel: 2},      
       { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 2},
-      // { title: 'Paradas', component: StopsPage, authLevel: 2},
-      // { title: 'Rutas', component: RoutesPage, authLevel: 2}      
+      { title: 'Paradas', component: StopsPage, authLevel: 2},
+      { title: 'Rutas', component: RoutesPage, authLevel: 2}      
     ];
 
   }
