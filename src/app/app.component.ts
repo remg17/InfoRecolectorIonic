@@ -21,7 +21,7 @@ import { RouteSchedulesPage } from '../pages/route-schedules/route-schedules';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any, authLevel: number}>;
 
@@ -31,15 +31,15 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Inicio', component: HomePage, authLevel: 0},
+      { title: 'Inicio', component: HomePage, authLevel: 2},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
       { title: 'Camiones', component: TrucksPage, authLevel: 2},
-      { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},
+      // { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},
       { title: 'Rutas / Paradas', component: RouteStopsPage, authLevel: 2},
       { title: 'Rutas / Horarios', component: RouteSchedulesPage, authLevel: 2},      
-      { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 0},
-      { title: 'Paradas', component: StopsPage, authLevel: 0},
-      { title: 'Rutas', component: RoutesPage, authLevel: 0}      
+      { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 2},
+      // { title: 'Paradas', component: StopsPage, authLevel: 2},
+      // { title: 'Rutas', component: RoutesPage, authLevel: 2}      
     ];
 
   }
@@ -77,6 +77,6 @@ export class MyApp {
 
   logOut():void{
     this.identityService.logOut();
-    this.nav.setRoot(HomePage);
+    this.nav.setRoot(LoginPage);
   }
 }

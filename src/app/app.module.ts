@@ -21,6 +21,10 @@ import { TrucksPage } from '../pages/trucks/trucks';
 import { RecyclingPointsPage } from '../pages/recycling-points/recycling-points';
 import { StopsPage } from '../pages/stops/stops';
 import { HttpModule } from '@angular/http';
+import { RoutesPage } from '../pages/routes/routes';
+import { TruckRoutesPage } from '../pages/truck-routes/truck-routes';
+import { RouteStopsPage } from '../pages/route-stops/route-stops';
+import { RouteSchedulesPage } from '../pages/route-schedules/route-schedules';
 
 
 @NgModule({
