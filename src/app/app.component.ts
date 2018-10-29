@@ -25,6 +25,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, authLevel: number}>;
 
+  userState: string = "No user changes";
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     private identityService: IdentityService) {
     this.initializeApp();
@@ -34,14 +35,29 @@ export class MyApp {
       { title: 'Inicio', component: HomePage, authLevel: 2},
       { title: 'Iniciar Sesión', component: LoginPage, authLevel: 1},
       { title: 'Camiones', component: TrucksPage, authLevel: 2},
-      { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},
+      // { title: 'Rutas / Camiones', component: TruckRoutesPage, authLevel: 2},
       { title: 'Rutas / Paradas', component: RouteStopsPage, authLevel: 2},
       { title: 'Rutas / Horarios', component: RouteSchedulesPage, authLevel: 2},      
       { title: 'Puntos de reciclaje', component: RecyclingPointsPage, authLevel: 2},
-      { title: 'Paradas', component: StopsPage, authLevel: 2},
-      { title: 'Rutas', component: RoutesPage, authLevel: 2}      
+      // { title: 'Paradas', component: StopsPage, authLevel: 2},
+      // { title: 'Rutas', component: RoutesPage, authLevel: 2}      
     ];
+    this.identityService.userChange.subscribe(ans => {
+      this.onUserChange(ans);
+    })
 
+  }
+
+  onUserChange(ans){
+    if(ans){
+      this.userState = "User has change: ";
+      this.rootPage = HomePage;
+    }else{
+      this.userState = "User has exit";
+      this.rootPage = LoginPage;
+    }
+
+    console.log(this.userState, ans);
   }
 
   initializeApp() {
@@ -62,16 +78,16 @@ export class MyApp {
   isVisible(authLevel: number):boolean{
     let ans: boolean;
 
-    switch(authLevel){
-      case 0: ans = true;
-      break;
-      case 1: ans = !this.identityService.isAuthenticated();
-      break;
-      case 2: ans = this.identityService.isAuthenticated();
-      break;
-      default: ans = true;
-
+    if(authLevel === 0){
+      ans = true;
+    }else if(authLevel === 1){
+      ans = !this.identityService.isAuthenticated();
+    }else if(authLevel === 2){
+      ans = this.identityService.isAuthenticated();
+    }else{
+      ans = true;
     }
+
     return ans;
   }
 
