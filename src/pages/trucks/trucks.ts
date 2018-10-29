@@ -15,19 +15,27 @@ import { IdentityService, TruckModel } from '../../services/identity.service';
   templateUrl: 'trucks.html',
 })
 export class TrucksPage {
-  camiones: TruckModel[];
+  camiones: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private identiyService: IdentityService) {
-      this.identiyService.getCamiones().subscribe(ans => this.cargarCamiones(ans));
+      // this.identiyService.getCamiones().subscribe(ans => this.cargarCamiones(ans));
+      this.identiyService.getCamiones().subscribe(ans => {
+        this.camiones = ans;
+      });
+      console.log(this.camiones);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TrucksPage');
   }
 
-  cargarCamiones(t:TruckModel[]){
-    this.camiones = [...t];
-    console.log(this.camiones);
+  toogleSection(i){
+    this.camiones[i].open = !this.camiones[i].open;
   }
+
+  // cargarCamiones(t:TruckModel[]){
+  //   this.camiones = [...t];
+  //   console.log(this.camiones);
+  // }
 
 }
