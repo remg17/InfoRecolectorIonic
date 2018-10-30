@@ -26,6 +26,12 @@
         <ion-icon name="arrow-down" *ngIf="item.open"></ion-icon>
         {{item.name}}
       </button>
+
+      <ion-list *ngIf="item.open" no-lines>
+        <ion-item detail-none class="clid-item" text-wrap>
+          <h2>{{item.type_truck.name}}</h2>
+        </ion-item>
+      </ion-list>
     </ion-list-header>
   </ion-list>
 </ion-content>
