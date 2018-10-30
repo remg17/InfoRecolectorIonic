@@ -1,6 +1,10 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { IdentityService, UserModel } from '../../services/identity.service';
+import { TrucksPage } from '../trucks/trucks';
+import { RouteSchedulesPage } from '../route-schedules/route-schedules';
+import { RoutesPage } from '../routes/routes';
+import { RecyclingPointsPage } from '../recycling-points/recycling-points';
 
 @Component({
   selector: 'page-home',
@@ -41,5 +45,20 @@ export class HomePage {
   //   console.log(this.usuarios);
   // }
 
+  navigateToTrucks():void{
+    this.navCtrl.push(TrucksPage);
+  }
+
+  navigateToShedules():void{
+    this.navCtrl.push(RouteSchedulesPage);
+  }
+
+  navigateToRoutes():void{
+    this.navCtrl.push(RoutesPage);
+  }
+
+  navigateToRecycling():void{
+    this.navCtrl.push(RecyclingPointsPage);
+  }
 
 }

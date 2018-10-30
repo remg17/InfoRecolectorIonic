@@ -10,12 +10,12 @@
 <ion-content padding>
   <div class="table">
       <div class = "row">
-          <div class = "col"><img src="../assets/imgs/Camion.png"/></div>
-          <div class = "col"><img src="../assets/imgs/Calendario.png"/></div>
+          <div class = "col" (click)="navigateToTrucks()"><img src="../assets/imgs/Camion.png"/></div>
+          <div class = "col" (click)="navigateToShedules()"><img src="../assets/imgs/Calendario.png"/></div>
       </div>
       <div class = "row">
-          <div class = "col"><img src="../assets/imgs/Ruta.png"/></div>
-          <div class = "col"><img src="../assets/imgs/Reciclaje.png"/></div>
+          <div class = "col" (click)="navigateToRoutes()"><img src="../assets/imgs/Ruta.png"/></div>
+          <div class = "col" (click)="navigateToRecycling()"><img src="../assets/imgs/Reciclaje.png"/></div>
       </div>
   </div>
 </ion-content>
