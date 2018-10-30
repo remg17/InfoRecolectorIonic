@@ -22,11 +22,11 @@ export class TrucksPage {
       this.identiyService.getCamiones().subscribe(ans => {
         this.camiones = ans;
       });
-      console.log(this.camiones);
+      //console.log(this.camiones);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrucksPage');
+    //console.log('ionViewDidLoad TrucksPage');
   }
 
   toogleSection(i){

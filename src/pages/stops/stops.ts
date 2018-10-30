@@ -22,12 +22,12 @@ export class StopsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StopsPage');
+    //console.log('ionViewDidLoad StopsPage');
   }
 
   cargarParadas(p:StopModel[]){
     this.paradas = [...p];
-    console.log(this.paradas);
+    //console.log(this.paradas);
   }  
 
 }

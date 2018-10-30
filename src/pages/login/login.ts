@@ -33,20 +33,20 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    //console.log('ionViewDidLoad LoginPage');
   }
 
   validateData(){
     this.identityService.isValidData(this.email, this.password).subscribe(ans => {
       if(ans){
-        console.log("Listo Mijo!!!");
+        //console.log("Listo Mijo!!!");
         this.navCtrl.setRoot(HomePage);
         return;
       }
       this.isValidated = true;
       let alert = this.alertControl.create({
-        title: 'Lo siento Mijo',
-        subTitle: 'Revise sus datos',
+        title: 'Lo siento',
+        subTitle: 'Los datos ingresados no corresponden',
         buttons: ['Volver']
       });
       alert.present();

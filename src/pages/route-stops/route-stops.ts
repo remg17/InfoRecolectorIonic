@@ -22,11 +22,11 @@ export class RouteStopsPage {
 }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RouteStopsPage');
+   //console.log('ionViewDidLoad RouteStopsPage');
   }
   
   CargarRutasParadas(r:RouteStopModel[]){
     this.rutasParadas = [...r];
-    console.log(this.rutasParadas);
+    //console.log(this.rutasParadas);
   }
 }

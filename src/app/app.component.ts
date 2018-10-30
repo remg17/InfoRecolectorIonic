@@ -56,8 +56,7 @@ export class MyApp {
       this.userState = "User has exit";
       this.rootPage = LoginPage;
     }
-
-    console.log(this.userState, ans);
+    //console.log(this.userState, ans);
   }
 
   initializeApp() {

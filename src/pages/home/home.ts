@@ -3,8 +3,8 @@ import { NavController } from 'ionic-angular';
 import { IdentityService, UserModel } from '../../services/identity.service';
 import { TrucksPage } from '../trucks/trucks';
 import { RouteSchedulesPage } from '../route-schedules/route-schedules';
-import { RoutesPage } from '../routes/routes';
 import { RecyclingPointsPage } from '../recycling-points/recycling-points';
+import { RouteStopsPage } from '../route-stops/route-stops';
 
 @Component({
   selector: 'page-home',
@@ -31,19 +31,12 @@ export class HomePage {
     }else{
       this.userState = "User has exit";
     }
-
-    console.log(this.userState, ans);
+    //console.log(this.userState, ans);
   }
 
   mostrarNombre():void{
     this.identityService.getUsuarios().subscribe(ans  => this.identityService.cargarUsuarios(ans));
   }
-
-  // Listar los usuarios con el botón
-  // cargarUsuarios(u:UserModel[]){
-  //   this.usuarios = [...u];
-  //   console.log(this.usuarios);
-  // }
 
   navigateToTrucks():void{
     this.navCtrl.push(TrucksPage);
@@ -54,7 +47,7 @@ export class HomePage {
   }
 
   navigateToRoutes():void{
-    this.navCtrl.push(RoutesPage);
+    this.navCtrl.push(RouteStopsPage);
   }
 
   navigateToRecycling():void{

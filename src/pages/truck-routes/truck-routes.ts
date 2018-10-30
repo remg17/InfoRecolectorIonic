@@ -22,11 +22,11 @@ export class TruckRoutesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TruckRoutesPage');
+    //console.log('ionViewDidLoad TruckRoutesPage');
   }
 
   cargarRutasCamiones(t:TruckRouteModel[]){
     this.rutasCamiones = [...t];
-    console.log(this.rutasCamiones);
+    //console.log(this.rutasCamiones);
   }
 }

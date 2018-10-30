@@ -22,11 +22,11 @@ export class RouteSchedulesPage {
 }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RouteSchedulesPage');
+    //console.log('ionViewDidLoad RouteSchedulesPage');
   }
 
   CargarRutasHorarios(r:RouteScheduleModel[]){
     this.rutasHorarios = [...r];
-    console.log(this.rutasHorarios);
+    //console.log(this.rutasHorarios);
   }
 }

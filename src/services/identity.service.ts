@@ -103,7 +103,7 @@ export class IdentityService{
 
     cargarUsuarios(u:UserModel[]){
         this.usuarios = [...u];
-        console.log(this.usuarios);
+        //console.log(this.usuarios);
     }
 
     isValidData(email: string, password: string) : Observable<boolean>{

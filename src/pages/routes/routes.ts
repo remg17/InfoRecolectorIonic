@@ -22,11 +22,11 @@ export class RoutesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RoutesPage');
+    //console.log('ionViewDidLoad RoutesPage');
   }
 
   cargarRutas(r:RouteModel[]){
     this.rutas = [...r];
-    console.log(this.rutas);
+    //console.log(this.rutas);
   } 
 }

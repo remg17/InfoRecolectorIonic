@@ -22,12 +22,12 @@ export class RecyclingPointsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RecyclingPointsPage');
+    //console.log('ionViewDidLoad RecyclingPointsPage');
   }
 
   cargarPuntos(p:RecyclingPointModel[]){
     this.puntos = [...p];
-    console.log(this.puntos);
+    //console.log(this.puntos);
   }
 
 }
